@@ -84,8 +84,6 @@ py_pip3(){
 
 tools(){
     if ask "Download some tools?" Y; then
-       wget -O /root/Desktop/conky-manager-latest-amd64.deb https://raw.githubusercontent.com/Sibren27/Kali_updater/master/includes/conky-manager-latest-amd64.deb -q
-       chmod +x /root/Desktop/conky-manager-latest-amd64.deb
        wget -O /root/Desktop/default-themes-extra-1.cmtp.7z https://raw.githubusercontent.com/Sibren27/Kali_updater/master/includes/default-themes-extra-1.cmtp.7z -q
        wget -O /root/Desktop/RTL8187SetSpeed.sh https://raw.githubusercontent.com/Sibren27/Kali_updater/master/includes/RTL8187SPEED.sh -q
        chmod +x /root/Desktop/RTL8187SetSpeed.sh
@@ -203,6 +201,15 @@ teamviewer(){
     fi
 }
 
+conky_manager(){
+    if ask "Install conky + Manager?" Y; then
+       apt-get -y install conky conky-std libaudclient2 libxmmsclient6 &>/dev/null
+       wget -O /root/conky-manager-latest-amd64.deb https://launchpad.net/~teejee2008/+archive/ubuntu/ppa/+build/6548237/+files/conky-manager_2.3.3%7E132%7Eubuntu15.04.1_amd64.deb
+       dpkg -i --ignore-depends=libglib2.0-0 /root/conky-manager-latest-amd64.deb
+       rm /root/conky-manager-latest-amd64.deb
+    fi
+}
+
 complete(){
     if ask "Reboot system now" Y; then
     reboot 
@@ -227,6 +234,7 @@ hostname
 numlock
 bleeding_edge
 teamviewer
+conky_manager
 cleanup
 distupgrade_system
 cleanup
