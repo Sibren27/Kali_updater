@@ -193,6 +193,16 @@ libs(){
     fi
 }
 
+teamviewer(){
+    if ask "Install Teamviewer?" Y; then
+       apt-get -y install lib32asound2
+       apt-get -y install lib32z1
+       wget http://download.teamviewer.com/download/teamviewer_linux_x64.deb
+       dpkg -i teamviewer_linux_x64.deb
+       rm teamviewer_linux_x64.deb
+    fi
+}
+
 complete(){
     if ask "Reboot system now" Y; then
     reboot 
@@ -216,9 +226,13 @@ ssh
 hostname
 numlock
 bleeding_edge
+teamviewer
 cleanup
 distupgrade_system
 cleanup
+
 print_status "all installations and updates complete."
+
 complete
+
 exit 0
