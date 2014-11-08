@@ -32,7 +32,6 @@ echo $BLUE"        This script will perform various updates and configure Kali "
 sleep 3
 clear
 check_euid
-#-----------------------------------------------------------------------------------------------------------------------------------
 
 network_manager(){
     if ask "Fix network manager?" Y; then
