@@ -25,7 +25,7 @@ echo $RED"              +                                              +"
 echo $RED"              +               www.Smetsys.nl                 +"
 echo $RED"              +##############################################+"
 echo ""
-echo $BLUE"     Visit http://www.smetsys.nl for updates to this script. Thanks"
+echo $BLUE"     Visit https://github.com/Sibren27/Kali_updater for updates to this script. Thanks"
 echo ""
 echo $BLUE"        This script will perform various updates and configure Kali "$STAND
 sleep 3
