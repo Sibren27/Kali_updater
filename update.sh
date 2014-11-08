@@ -84,6 +84,9 @@ py_pip3(){
 
 tools(){
     if ask "Download some tools?" Y; then
+	   wget -O /root/realpath_1.18_amd64.deb http://repo.kali.org/kali/pool/main/r/realpath/realpath_1.18_amd64.deb
+       dpkg -i /root/realpath_1.18_amd64.deb
+       rm realpath_1.18_amd64.deb
        wget -O /root/Desktop/default-themes-extra-1.cmtp.7z https://raw.githubusercontent.com/Sibren27/Kali_updater/master/includes/default-themes-extra-1.cmtp.7z -q
        wget -O /root/Desktop/RTL8187SetSpeed.sh https://raw.githubusercontent.com/Sibren27/Kali_updater/master/includes/RTL8187SPEED.sh -q
        chmod +x /root/Desktop/RTL8187SetSpeed.sh
