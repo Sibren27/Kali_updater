@@ -1,5 +1,9 @@
 Kali_updater
 ============
+To Use this scrip do the following:
+wget https://raw.githubusercontent.com/Sibren27/Kali_updater/master/update.sh
+chmod +x update.sh
+./update.sh
 
 Script for installing Tools and updates
 
