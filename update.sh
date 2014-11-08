@@ -84,9 +84,6 @@ py_pip3(){
 
 tools(){
     if ask "Download some tools?" Y; then
-	   wget -O /root/realpath_1.18_amd64.deb http://repo.kali.org/kali/pool/main/r/realpath/realpath_1.18_amd64.deb
-       dpkg -i /root/realpath_1.18_amd64.deb
-       rm realpath_1.18_amd64.deb
        wget -O /root/Desktop/default-themes-extra-1.cmtp.7z https://raw.githubusercontent.com/Sibren27/Kali_updater/master/includes/default-themes-extra-1.cmtp.7z -q
        wget -O /root/Desktop/RTL8187SetSpeed.sh https://raw.githubusercontent.com/Sibren27/Kali_updater/master/includes/RTL8187SPEED.sh -q
        chmod +x /root/Desktop/RTL8187SetSpeed.sh
@@ -204,8 +201,32 @@ teamviewer(){
     fi
 }
 
+vpn(){
+    if ask "Install VPN support?" Y; then
+       apt-get -y install network-manager-openvpn-gnome network-manager-pptp network-manager-pptp-gnome network-manager-strongswan network-manager-vpnc network-manager-vpnc-gnome ipsec-tools libart-2.0-2 libbonoboui2-0 libbonoboui2-common libfcgi0ldbl libgnomecanvas2-0 libgnomecanvas2-common libgnomeui-0 libgnomeui-common libstrongswan network-manager-openvpn pptp-linux strongswan-ikev2 strongswan-nm &>/dev/null
+    fi
+}
+
+tor(){
+    if ask "Install tor support?" Y; then
+       apt-get -y install tor privoxy doc-base libyaml-tiny-perl tor-geoipdb torsocks
+       apt-get -y install vidalia polipo
+       echo "forward-socks4a / localhost:9050 ." >> /etc/privoxy/config
+    fi
+}
+
+tor_startup(){
+    if ask "Add tor to startup?" Y; then
+       update-rc.d tor enable
+       update-rc.d privoxy enable 
+    fi
+}
+
 conky_manager(){
     if ask "Install conky + Manager?" Y; then
+       wget -O /root/realpath_1.18_amd64.deb http://repo.kali.org/kali/pool/main/r/realpath/realpath_1.18_amd64.deb
+       dpkg -i /root/realpath_1.18_amd64.deb
+       rm realpath_1.18_amd64.deb
        apt-get -y install conky conky-std libaudclient2 libxmmsclient6 &>/dev/null
        wget -O /root/conky-manager-latest-amd64.deb https://launchpad.net/~teejee2008/+archive/ubuntu/ppa/+build/6548237/+files/conky-manager_2.3.3%7E132%7Eubuntu15.04.1_amd64.deb
        dpkg -i --ignore-depends=libglib2.0-0 /root/conky-manager-latest-amd64.deb
@@ -238,6 +259,8 @@ numlock
 bleeding_edge
 teamviewer
 conky_manager
+vpn
+tor_startup
 cleanup
 distupgrade_system
 cleanup
