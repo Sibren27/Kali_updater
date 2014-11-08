@@ -195,8 +195,8 @@ libs(){
 
 teamviewer(){
     if ask "Install Teamviewer?" Y; then
-       apt-get -y install lib32asound2
-       apt-get -y install lib32z1
+       apt-get -y install lib32asound2 &>/dev/null
+       apt-get -y install lib32z1 &>/dev/null
        wget http://download.teamviewer.com/download/teamviewer_linux_x64.deb
        dpkg -i teamviewer_linux_x64.deb
        rm teamviewer_linux_x64.deb
