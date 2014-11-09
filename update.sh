@@ -260,6 +260,7 @@ bleeding_edge
 teamviewer
 conky_manager
 vpn
+tor
 tor_startup
 cleanup
 distupgrade_system
