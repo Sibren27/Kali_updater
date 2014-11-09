@@ -110,8 +110,8 @@ synaptic(){
     fi
 }
 
-WPSscan(){
-    if ask "Install WPSscan?" Y; then
+WPScan(){
+    if ask "Install WPScan?" Y; then
        cd /root &>/dev/null
        apt-get -y install libcurl4-gnutls-dev libopenssl-ruby libxml2 libxml2-dev libxslt1-dev ruby-dev &>/dev/null
        git clone https://github.com/wpscanteam/wpscan.git &>/dev/null
@@ -251,7 +251,7 @@ tools
 lazykali
 flash
 synaptic
-WPSscan
+WPScan
 libs
 ssh
 hostname
