@@ -271,3 +271,8 @@ print_status "all installations and updates complete."
 complete
 
 exit 0
+# Programs to add
+# apt-get install nethogs
+# apt-get install gtk-recordmydesktop 
+# apt-get install recordmydesktop
+# apt-get install gdebi
